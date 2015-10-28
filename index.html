@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width">
+<title>人狼解析</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="./js/jquery.cookie.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/Jinro.js"></script>
+<script src="./js/engine.js"></script>
+<script>
+</script>
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./css/index.css">
+<style>
+</style>
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a id="NavLink" class="navbar-brand" href="./">人狼解析</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://twitter.com/rev84" target="_blank">developed by @rev84</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  <h1>人狼解析</h1>
+
+  <table>
+    <th>村人</th><td><input type="number" id="murabito" value="6"></td>
+    <th>占い師</th><td><input type="number" id="uranai" value="1"></td>
+    <th>霊能者</th><td><input type="number" id="reinou" value="1"></td>
+    <th>狩人</th><td><input type="number" id="kariudo" value="1"></td>
+    <th>共有者</th><td><input type="number" id="kyoyu" value="1"></td>
+    <th>猫又</th><td><input type="number" id="nekomata" value="1"></td>
+  </tr>
+  <tr>
+    <th>人狼</th><td><input type="number" id="jinro" value="1"></td>
+    <th>狂人</th><td><input type="number" id="kyojin" value="1"></td>
+    <th>妖狐</th><td><input type="number" id="youko" value="1"></td>
+    <th>背徳者</th><td><input type="number" id="haitoku" value="1"></td>
+  </tr>
+</table>
+
+<hr>
+
+<p>
+占い師CO<br>
+<textarea id="uranaiCO">a/b○</textarea>
+</p>
+
+<p>
+霊能者CO<br>
+<textarea id="reinouCO">b/c○</textarea>
+</p>
+
+<p>
+人名リスト<br>
+<textarea id="jinmei">a
+b
+c
+d
+e</textarea>
+</p>
+
+<footer>
+</footer>
+</body>
+</html>

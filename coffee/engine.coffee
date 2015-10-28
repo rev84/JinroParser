@@ -1,0 +1,2 @@
+$().ready ->
+  a = new Jinro()
