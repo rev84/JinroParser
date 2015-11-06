@@ -7,6 +7,10 @@ Array::shuffle = ()->
     @[j] = t
   @
 
+uranai = 0
+reinou = 0
+
+
 class Jinro
   CONST:
     JOBS:
@@ -26,6 +30,8 @@ class Jinro
   name2index:{}
   uranaiCO:{}
   reinouCO:{}
+  syokei:{}
+  sitai:{}
   result:[]
 
   constructor:()->
@@ -33,6 +39,8 @@ class Jinro
     @setMemberName()
     @setUranaiCO()
     @setReinouCO()
+    @setSyokei()
+    @setSitai()
 
   calc:(count)->
     @initResult()
@@ -164,31 +172,50 @@ class Jinro
       @name2index[value] = key
       memberCount++
     @memberCount = memberCount
+
   setJobCount:()->
     res = {}
     for value, key of @CONST.JOBS
       res[value] = Number $('#'+value).val()
     @jobCount = res
+
   setUranaiCO:()->
-    lines = $('#uranaiCO').val().split("\n")
-    for line in lines
-      stacks = line.split("/")
-      name = stacks.shift()
-      @uranaiCO[@name2index[name]] = []
-      for uranai in stacks
-        targetName = uranai.substr 0, uranai.length-1
-        hantei = uranai.substr uranai.length-1, 1
-        @uranaiCO[@name2index[name]].push [@name2index[targetName], (if hantei is "○" then true else false)]
+    for memberIndex in [0...4]
+      continue if $('.uranaiCOname'+memberIndex).val() < 0
+      @uranaiCO[memberIndex] = []
+      for day in [0...10]
+        targetIndex = $('.uranaiCO'+memberIndex+'_'+day).val()
+        hantei = $('.uranaiCOhantei'+memberIndex+'_'+day).val()
+        continue if targetIndex < 0 or hantei < 0
+        @uranaiCO[memberIndex].push [targetIndex, (if hantei is 0 then true else false)]
+
   setReinouCO:()->
-    lines = $('#reinouCO').val().split("\n")
-    for line in lines
-      stacks = line.split("/")
-      name = stacks.shift()
-      @reinouCO[@name2index[name]] = []
-      for uranai in stacks
-        targetName = uranai.substr 0, uranai.length-1
-        hantei = uranai.substr uranai.length-1, 1
-        @reinouCO[@name2index[name]].push [@name2index[targetName], (if hantei is "○" then true else false)]
+    for memberIndex in [0...4]
+      continue if $('.reinouCOname'+memberIndex).val() < 0
+      @reinouCO[memberIndex] = []
+      for day in [0...10]
+        targetIndex = $('.reinouCO'+memberIndex+'_'+day).val()
+        hantei = $('.reinouCOhantei'+memberIndex+'_'+day).val()
+        continue if targetIndex < 0 or hantei < 0
+        @reinouCO[memberIndex].push [targetIndex, (if hantei is 0 then true else false)]
+
+  setSyokei:()->
+    for day in [0...10]
+      @syokei[day] = []
+
+      syokeiIndex = $('.syokei'+d).val()
+      @syokei[day].push syokeiIndex if syokeiIndex < 0
+
+  setSitai:()->
+    for day in [0...10]
+      @sitai[day] = []
+
+      selects = $('.sitai'+d)
+      for s in selects
+        syokeiIndex = s.val()
+        continue if syokeiIndex < 0
+        @syokei[day].push syokeiIndex
+
   getRandomJob:()->
     jobs = @getJobCount()
     jobArray = []

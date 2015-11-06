@@ -52,25 +52,35 @@
 <hr>
 
 <p>
-占い師CO<br>
-<textarea id="uranaiCO">a/b○</textarea>
-</p>
-
-<p>
-霊能者CO<br>
-<textarea id="reinouCO">b/c○</textarea>
-</p>
-
-<p>
 人名リスト<br>
-<textarea id="jinmei">a
+<textarea id="members">a
 b
 c
 d
 e</textarea>
 </p>
 
-<footer>
-</footer>
+<button id="calc">計算</button>
+
+<table id="inputTable" border="1">
+  <thead id="dayLabel">
+  </thead>
+  <tbody id="uranaiForm">
+  </tbody>
+  <tbody id="reinouForm">
+  </tbody>
+  <tbody id="syokeiForm">
+  </tbody>
+  <tbody id="sitaiForm">
+  </tbody>
+</table>
+
+<select id="tempOption" class="nodisplay"></select>
+<select id="tempSirokuro" class="nodisplay">
+  <option value="-1">-</option>
+  <option value="0">○</option>
+  <option value="1">●</option>
+</select>
+
 </body>
 </html>

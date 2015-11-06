@@ -13,3 +13,21 @@ textarea {
   height:300px;
   font-size:150%;
 }
+select {
+  width:50px;
+  height:20px;
+  font-size:18px;
+}
+.nodisplay {
+  display:none;
+}
+.active {
+  background-color: #ccffcc;
+}
+button#calc {
+  font-size:50px;
+  width:200px;
+  height:75px;
+  margin-top:10px;
+  margin-bottom:10px;
+}
